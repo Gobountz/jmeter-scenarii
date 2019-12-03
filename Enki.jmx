@@ -41,7 +41,7 @@
             <stringProp name="HTTPSampler.port">${port}</stringProp>
             <stringProp name="HTTPSampler.protocol">http</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/${endpoint}</stringProp>
+            <stringProp name="HTTPSampler.path">/${prefix}${endpoint}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -117,6 +117,11 @@
           <elementProp name="port" elementType="Argument">
             <stringProp name="Argument.name">port</stringProp>
             <stringProp name="Argument.value">${__P(port, 8080)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="prefix" elementType="Argument">
+            <stringProp name="Argument.name">prefix</stringProp>
+            <stringProp name="Argument.value">${__P(prefix, )}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
