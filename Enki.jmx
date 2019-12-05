@@ -51,7 +51,17 @@
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
           </HTTPSamplerProxy>
-          <hashTree/>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Authorization</stringProp>
+                  <stringProp name="Header.value">${authorization}</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+          </hashTree>
         </hashTree>
         <kg.apc.jmeter.timers.VariableThroughputTimer guiclass="kg.apc.jmeter.timers.VariableThroughputTimerGui" testclass="kg.apc.jmeter.timers.VariableThroughputTimer" testname="Throughput modulation" enabled="true">
           <collectionProp name="load_profile">
@@ -122,6 +132,11 @@
           <elementProp name="prefix" elementType="Argument">
             <stringProp name="Argument.name">prefix</stringProp>
             <stringProp name="Argument.value">${__P(prefix, )}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="authorization" elementType="Argument">
+            <stringProp name="Argument.name">authorization</stringProp>
+            <stringProp name="Argument.value">${__P(authorization, )}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
